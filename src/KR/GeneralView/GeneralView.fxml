@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KR.GeneralView.GeneralView">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem fx:id="MenuOpenFile" mnemonicParsing="false" text="Open…" />
+            <Menu fx:id="OpenRecentMenu" mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About YOOnto" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+            <VBox>
+               <children>
+            <Label fx:id="l1" alignment="CENTER" prefWidth="-1.0" style="&#10;" text="TreeView" textAlignment="CENTER" textFill="#222020" wrapText="false">
+              <font>
+                <Font size="14.0" />
+              </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </VBox.margin>
+            </Label>
+                  <TreeView fx:id="OntoTreeView" prefHeight="300.0" prefWidth="210.0" />
+                  <Label fx:id="l11" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="-1.0" style="&#10;" text="Individus of :" textAlignment="CENTER" textFill="#222020" wrapText="false">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="185.0" prefWidth="221.0">
+                     <content>
+                        <VBox fx:id="OntoIndividuals" spacing="10.0">
+                           <opaqueInsets>
+                              <Insets left="5.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </ScrollPane>
+               </children>
+            </VBox>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0">
+                     <children>
+                        <TabPane prefHeight="544.0" prefWidth="665.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <tabs>
+                            <Tab text="OntoText">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button fx:id="ApplyChangesButton" contentDisplay="CENTER" layoutX="20.0" mnemonicParsing="false" text="Apply Changes" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" />
+                                          <Pane fx:id="OntoTextViewerHolder" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab text="Query">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox fx:id="QueryHolder" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                                             <children>
+                                                <HBox prefHeight="50.0" prefWidth="200.0" spacing="50.0">
+                                                   <children>
+                                                      <Button fx:id="ExecuteSpQueryButton" mnemonicParsing="false" text="Execute" />
+                                                      <Button fx:id="ClearFeedBackButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Clear" />
+                                                   </children>
+                                                   <padding>
+                                                      <Insets left="10.0" top="10.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <ScrollPane>
+                                                   <content>
+                                                      <Label fx:id="SparqlFeedBack" alignment="TOP_LEFT" text="..." />
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab fx:id="StartVisButton" text="Visual">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <ScrollPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <content>
+                                                <StackPane fx:id="GraphVisualizerZone" prefHeight="2000.0" prefWidth="2000.0" />
+                                             </content>
+                                          </ScrollPane>
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="AnnotationTab" text="Annotation ">
+                                <content>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label text="Class Info :" />
+                                          <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                             <content>
+                                                <VBox fx:id="classInfoVbox" spacing="10.0">
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </content>
+                                          </ScrollPane>
+                                          <Label layoutX="10.0" layoutY="10.0" text="Individual Info :" />
+                                          <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+                                             <content>
+                                                <VBox fx:id="individualInfoVbox" spacing="10.0">
+                                                   <padding>
+                                                      <Insets left="10.0" right="10.0" top="10.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+      </items>
+    </SplitPane>
+      <AnchorPane VBox.vgrow="NEVER">
+         <children>
+        <Label fx:id="isCharged" layoutX="3.0" layoutY="3.0" maxWidth="-1.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+            <Label fx:id="OntoPath" layoutX="114.0" layoutY="3.0" maxWidth="-1.0" text="NonOnto in buffer" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+         </children>
+      </AnchorPane>
+  </children>
+</VBox>
