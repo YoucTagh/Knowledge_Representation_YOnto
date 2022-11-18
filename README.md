@@ -6,3 +6,8 @@ YOnto is an authoring system for ontologies including these features:
 * [x] Reading an ontology and updating it
 * [x] Importing and exporting the ontologies
 * [x] Making SPARQL queries 
+
+
+## Prerequisites
+
+* Java 8+.
